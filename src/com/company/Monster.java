@@ -1,12 +1,14 @@
 package com.company;
 
+import java.util.Scanner;
+
 public class Monster {
 
     private int money;
     private int energy;
     private int force;
 
-    public Monster(int money, int energy, int force) {
+    public Monster( int money, int energy, int force) {
         this.money = money;
         this.energy = energy;
         this.force = force;

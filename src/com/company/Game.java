@@ -5,12 +5,10 @@ import java.util.Scanner;
 
 public class Game {
 
-//    static Fight fight = new Fight();
-    static Donated donated = new Donated();
     Scanner consol = new Scanner(System.in);
     SecureRandom random = new SecureRandom();
     Hero hero = new Hero(100, 100, 50, 1);
-    Monster easyMonster = new Monster(10, 5, 1);
+    Monster easyMonster = new Monster(random.nextInt(10),5, random.nextInt(2));
     Items items = new Items(10, 10);
 
     public Game() {
@@ -38,7 +36,7 @@ public class Game {
                 fightMonster();
                 break;
             case 2:
-                donated.moneyDonated();
+                moneyDonated();
                 ;
                 break;
             case 3:
@@ -47,16 +45,21 @@ public class Game {
         }
     }
 
-            public void fightMonster() {
-            hero.setEnergy(hero.getEnergy()- easyMonster.getEnergy());
-            if(hero.getForce()>easyMonster.getForce()){
-                System.out.println("ВЫ попедили: Деньги +5");
-                hero.setMoney(hero.getMoney()+easyMonster.getMoney());
+    public void fightMonster() {
+        hero.setEnergy(hero.getEnergy() - easyMonster.getEnergy());
+        if (hero.getForce() > easyMonster.getForce()) {
+            System.out.println("ВЫ попедили: Деньги +5");
+            hero.setMoney(hero.getMoney() + easyMonster.getMoney());
 
-            }else
-                System.out.println("ВЫ проиграли: Потеря 5 HP");
+        } else
+            System.out.println("ВЫ проиграли: Потеря 5 HP");
 
-        }
+    }
+
+    public void moneyDonated() {
+        int donated = random.nextInt(50);
+        System.out.println("Поздравляю вы получили " + donated + " монет с подачек");
+    }
 
 
 //    }
